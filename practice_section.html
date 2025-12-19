@@ -1,0 +1,685 @@
+<section id="practice">
+    <h2>Practice Questions with Answers</h2>
+
+    <div class="practice-question">
+        <h3>Question 1: Swap two numbers without using a third variable</h3>
+        <div class="code-container">
+            <pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int main() {
+    int a = 10, b = 20;
+    
+    printf("Before swap: a = %d, b = %d\n", a, b);
+    
+    // Swap without third variable
+    a = a + b;  // a becomes 30
+    b = a - b;  // b becomes 10 (original a)
+    a = a - b;  // a becomes 20 (original b)
+    
+    printf("After swap: a = %d, b = %d\n", a, b);
+    
+    return 0;
+}</code></pre>
+        </div>
+
+        <h4>Answer:</h4>
+        <p><strong>How it works:</strong></p>
+        <p>This program swaps two numbers without using a temporary third variable by using arithmetic operations. Let's
+            understand step by step with initial values a=10 and b=20:</p>
+        <ol>
+            <li><strong>Step 1:</strong> <code>a = a + b</code> → a becomes 30 (10 + 20). Now a stores the sum of both
+                numbers.</li>
+            <li><strong>Step 2:</strong> <code>b = a - b</code> → b becomes 10 (30 - 20). We subtract the original b
+                from the sum to get the original value of a.</li>
+            <li><strong>Step 3:</strong> <code>a = a - b</code> → a becomes 20 (30 - 10). We subtract the new b (which
+                is original a) from the sum to get the original value of b.</li>
+        </ol>
+        <p><strong>Output:</strong></p>
+        <pre>Before swap: a = 10, b = 20
+After swap: a = 20, b = 10</pre>
+        <p><strong>Alternative Method:</strong> You can also use XOR bitwise operator:
+            <code>a = a ^ b; b = a ^ b; a = a ^ b;</code></p>
+    </div>
+
+    <div class="practice-question">
+        <h3>Question 2: Check if a number is an Armstrong number</h3>
+        <div class="code-container">
+            <pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;math.h&gt;
+
+int main() {
+    int num, originalNum, remainder, result = 0, n = 0;
+    
+    printf("Enter an integer: ");
+    scanf("%d", &num);
+    
+    originalNum = num;
+    
+    // Count number of digits
+    while (originalNum != 0) {
+        originalNum /= 10;
+        ++n;
+    }
+    
+    originalNum = num;
+    
+    // Calculate sum of nth power of each digit
+    while (originalNum != 0) {
+        remainder = originalNum % 10;
+        result += pow(remainder, n);
+        originalNum /= 10;
+    }
+    
+    // Check if sum equals original number
+    if (result == num)
+        printf("%d is an Armstrong number.\n", num);
+    else
+        printf("%d is not an Armstrong number.\n", num);
+    
+    return 0;
+}</code></pre>
+        </div>
+
+        <h4>Answer:</h4>
+        <p><strong>What is an Armstrong Number?</strong></p>
+        <p>An Armstrong number (also called narcissistic number) is a number that is equal to the sum of its own digits
+            each raised to the power of the number of digits.</p>
+
+        <p><strong>Examples:</strong></p>
+        <ul>
+            <li><strong>153</strong> is an Armstrong number: 153 = 1³ + 5³ + 3³ = 1 + 125 + 27 = 153 ✓</li>
+            <li><strong>9474</strong> is an Armstrong number: 9474 = 9⁴ + 4⁴ + 7⁴ + 4⁴ = 6561 + 256 + 2401 + 256 = 9474
+                ✓</li>
+            <li><strong>123</strong> is NOT an Armstrong number: 123 ≠ 1³ + 2³ + 3³ = 1 + 8 + 27 = 36 ✗</li>
+        </ul>
+
+        <p><strong>How the program works:</strong></p>
+        <ol>
+            <li><strong>Count digits:</strong> First loop counts how many digits are in the number (n)</li>
+            <li><strong>Extract each digit:</strong> Use modulo operator (%) to get the last digit:
+                <code>remainder = num % 10</code></li>
+            <li><strong>Calculate power:</strong> Raise each digit to the power of n using
+                <code>pow(remainder, n)</code></li>
+            <li><strong>Sum up:</strong> Add all the powered digits together</li>
+            <li><strong>Compare:</strong> If the sum equals the original number, it's an Armstrong number</li>
+        </ol>
+
+        <p><strong>Sample Output:</strong></p>
+        <pre>Enter an integer: 153
+153 is an Armstrong number.</pre>
+    </div>
+
+    <div class="practice-question">
+        <h3>Question 3: Write a recursive function to find factorial</h3>
+        <div class="code-container">
+            <pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int factorial(int n) {
+    // Base case: factorial of 0 or 1 is 1
+    if (n == 0 || n == 1)
+        return 1;
+    
+    // Recursive case: n! = n × (n-1)!
+    return n * factorial(n - 1);
+}
+
+int main() {
+    int num;
+    
+    printf("Enter a positive integer: ");
+    scanf("%d", &num);
+    
+    if (num < 0) {
+        printf("Factorial is not defined for negative numbers.\n");
+    } else {
+        printf("Factorial of %d = %d\n", num, factorial(num));
+    }
+    
+    return 0;
+}</code></pre>
+        </div>
+
+        <h4>Answer:</h4>
+        <p><strong>What is Factorial?</strong></p>
+        <p>Factorial of a number n (written as n!) is the product of all positive integers less than or equal to n.</p>
+        <p>Formula: n! = n × (n-1) × (n-2) × ... × 2 × 1</p>
+
+        <p><strong>Examples:</strong></p>
+        <ul>
+            <li>5! = 5 × 4 × 3 × 2 × 1 = 120</li>
+            <li>4! = 4 × 3 × 2 × 1 = 24</li>
+            <li>3! = 3 × 2 × 1 = 6</li>
+            <li>0! = 1 (by definition)</li>
+        </ul>
+
+        <p><strong>How Recursion Works:</strong></p>
+        <p>Recursion is when a function calls itself. For factorial:</p>
+        <ol>
+            <li><strong>Base Case:</strong> <code>if (n == 0 || n == 1) return 1;</code> - This stops the recursion</li>
+            <li><strong>Recursive Case:</strong> <code>return n * factorial(n - 1);</code> - Function calls itself with
+                n-1</li>
+        </ol>
+
+        <p><strong>Example: factorial(5)</strong></p>
+        <pre>factorial(5) = 5 × factorial(4)
+             = 5 × 4 × factorial(3)
+             = 5 × 4 × 3 × factorial(2)
+             = 5 × 4 × 3 × 2 × factorial(1)
+             = 5 × 4 × 3 × 2 × 1
+             = 120</pre>
+
+        <p><strong>Sample Output:</strong></p>
+        <pre>Enter a positive integer: 5
+Factorial of 5 = 120</pre>
+    </div>
+
+    <div class="practice-question">
+        <h3>Question 4: Program for matrix multiplication (3×3)</h3>
+        <div class="code-container">
+            <pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int main() {
+    int a[3][3], b[3][3], result[3][3];
+    int i, j, k;
+    
+    // Initialize result matrix to 0
+    for(i = 0; i < 3; i++) {
+        for(j = 0; j < 3; j++) {
+            result[i][j] = 0;
+        }
+    }
+    
+    // Input first matrix
+    printf("Enter elements of first 3x3 matrix:\n");
+    for(i = 0; i < 3; i++) {
+        for(j = 0; j < 3; j++) {
+            printf("a[%d][%d]: ", i, j);
+            scanf("%d", &a[i][j]);
+        }
+    }
+    
+    // Input second matrix
+    printf("\nEnter elements of second 3x3 matrix:\n");
+    for(i = 0; i < 3; i++) {
+        for(j = 0; j < 3; j++) {
+            printf("b[%d][%d]: ", i, j);
+            scanf("%d", &b[i][j]);
+        }
+    }
+    
+    // Matrix multiplication
+    for(i = 0; i < 3; i++) {
+        for(j = 0; j < 3; j++) {
+            for(k = 0; k < 3; k++) {
+                result[i][j] += a[i][k] * b[k][j];
+            }
+        }
+    }
+    
+    // Display result
+    printf("\nResultant Matrix:\n");
+    for(i = 0; i < 3; i++) {
+        for(j = 0; j < 3; j++) {
+            printf("%d\t", result[i][j]);
+        }
+        printf("\n");
+    }
+    
+    return 0;
+}</code></pre>
+        </div>
+
+        <h4>Answer:</h4>
+        <p><strong>Matrix Multiplication Rule:</strong></p>
+        <p>For two matrices A (m×n) and B (n×p), the result C will be (m×p). Each element C[i][j] is calculated as:</p>
+        <p><code>C[i][j] = A[i][0]×B[0][j] + A[i][1]×B[1][j] + ... + A[i][n-1]×B[n-1][j]</code></p>
+
+        <p><strong>How the program works:</strong></p>
+        <ol>
+            <li><strong>Initialize:</strong> Create three 3×3 matrices (a, b, result) and set result to all zeros</li>
+            <li><strong>Input:</strong> Read elements for matrix a and matrix b from user</li>
+            <li><strong>Multiply:</strong> Use three nested loops:
+                <ul>
+                    <li><code>i</code> loop: iterates through rows of first matrix</li>
+                    <li><code>j</code> loop: iterates through columns of second matrix</li>
+                    <li><code>k</code> loop: performs the actual multiplication and addition</li>
+                </ul>
+            </li>
+            <li><strong>Formula:</strong> <code>result[i][j] += a[i][k] * b[k][j]</code> - multiply row of A with column
+                of B</li>
+            <li><strong>Display:</strong> Print the resulting matrix</li>
+        </ol>
+
+        <p><strong>Example:</strong></p>
+        <pre>Matrix A:        Matrix B:        Result:
+1  2  3          7  8  9          30  36  42
+4  5  6    ×    10 11 12    =    66  81  96
+7  8  9          13 14 15         102 126 150</pre>
+
+        <p><strong>Calculation for result[0][0]:</strong></p>
+        <pre>result[0][0] = (1×7) + (2×10) + (3×13) = 7 + 20 + 39 = 66</pre>
+    </div>
+
+    <div class="practice-question">
+        <h3>Question 5: Check if a string is palindrome (without using string.h)</h3>
+        <div class="code-container">
+            <pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int main() {
+    char str[100];
+    int i, length = 0, flag = 1;
+    
+    printf("Enter a string: ");
+    scanf("%s", str);
+    
+    // Calculate length manually
+    while(str[length] != '\0') {
+        length++;
+    }
+    
+    // Check palindrome
+    for(i = 0; i < length/2; i++) {
+        if(str[i] != str[length - i - 1]) {
+            flag = 0;
+            break;
+        }
+    }
+    
+    if(flag == 1)
+        printf("%s is a palindrome.\n", str);
+    else
+        printf("%s is not a palindrome.\n", str);
+    
+    return 0;
+}</code></pre>
+        </div>
+
+        <h4>Answer:</h4>
+        <p><strong>What is a Palindrome?</strong></p>
+        <p>A palindrome is a word, phrase, or sequence that reads the same backward as forward.</p>
+
+        <p><strong>Examples:</strong></p>
+        <ul>
+            <li><strong>Palindromes:</strong> madam, racecar, noon, level, radar</li>
+            <li><strong>Not Palindromes:</strong> hello, world, programming</li>
+        </ul>
+
+        <p><strong>How the program works:</strong></p>
+        <ol>
+            <li><strong>Input string:</strong> Read the string from user</li>
+            <li><strong>Calculate length:</strong> Use a while loop to count characters until null terminator '\0'</li>
+            <li><strong>Compare characters:</strong> Compare first character with last, second with second-last, and so
+                on</li>
+            <li><strong>Loop runs:</strong> Only until middle of string (length/2) to avoid redundant comparisons</li>
+            <li><strong>Flag variable:</strong> Initially set to 1 (true). If any mismatch found, set to 0 (false) and
+                break</li>
+        </ol>
+
+        <p><strong>Example with "madam":</strong></p>
+        <pre>Length = 5
+Comparisons:
+  str[0] vs str[4]: 'm' == 'm' ✓
+  str[1] vs str[3]: 'a' == 'a' ✓
+  str[2] is middle, no need to compare
+Result: Palindrome!</pre>
+
+        <p><strong>Example with "hello":</strong></p>
+        <pre>Length = 5
+Comparisons:
+  str[0] vs str[4]: 'h' != 'o' ✗
+Result: Not a palindrome!</pre>
+
+        <p><strong>Sample Output:</strong></p>
+        <pre>Enter a string: radar
+radar is a palindrome.</pre>
+    </div>
+
+    <div class="practice-question">
+        <h3>Question 6: File handling - Read numbers and write even/odd to separate files</h3>
+        <div class="code-container">
+            <pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int main() {
+    FILE *inputFile, *evenFile, *oddFile;
+    int num;
+    
+    // Open input file for reading
+    inputFile = fopen("numbers.txt", "r");
+    if(inputFile == NULL) {
+        printf("Error opening input file!\n");
+        return 1;
+    }
+    
+    // Open output files for writing
+    evenFile = fopen("even.txt", "w");
+    oddFile = fopen("odd.txt", "w");
+    
+    if(evenFile == NULL || oddFile == NULL) {
+        printf("Error creating output files!\n");
+        return 1;
+    }
+    
+    // Read numbers and separate even/odd
+    while(fscanf(inputFile, "%d", &num) != EOF) {
+        if(num % 2 == 0)
+            fprintf(evenFile, "%d\n", num);
+        else
+            fprintf(oddFile, "%d\n", num);
+    }
+    
+    // Close all files
+    fclose(inputFile);
+    fclose(evenFile);
+    fclose(oddFile);
+    
+    printf("Numbers separated successfully!\n");
+    printf("Even numbers written to even.txt\n");
+    printf("Odd numbers written to odd.txt\n");
+    
+    return 0;
+}</code></pre>
+        </div>
+
+        <h4>Answer:</h4>
+        <p><strong>File Handling in C:</strong></p>
+        <p>File handling allows programs to store data permanently on disk. C provides functions like fopen(), fclose(),
+            fprintf(), fscanf() for file operations.</p>
+
+        <p><strong>How the program works:</strong></p>
+        <ol>
+            <li><strong>Open input file:</strong> <code>fopen("numbers.txt", "r")</code> - Opens file in read mode ("r")
+            </li>
+            <li><strong>Check if file exists:</strong> If fopen returns NULL, file doesn't exist or can't be opened</li>
+            <li><strong>Create output files:</strong> <code>fopen("even.txt", "w")</code> - Opens/creates file in write
+                mode ("w")</li>
+            <li><strong>Read numbers:</strong> <code>fscanf(inputFile, "%d", &num)</code> - Reads integers from file
+                until EOF (End Of File)</li>
+            <li><strong>Check even/odd:</strong> <code>num % 2 == 0</code> - If remainder is 0, number is even</li>
+            <li><strong>Write to files:</strong> <code>fprintf(evenFile, "%d\n", &num)</code> - Writes number to
+                appropriate file</li>
+            <li><strong>Close files:</strong> Always close files using fclose() to save changes and free resources</li>
+        </ol>
+
+        <p><strong>File Modes:</strong></p>
+        <ul>
+            <li><code>"r"</code> - Read mode (file must exist)</li>
+            <li><code>"w"</code> - Write mode (creates new file or overwrites existing)</li>
+            <li><code>"a"</code> - Append mode (adds to end of file)</li>
+            <li><code>"r+"</code> - Read and write mode</li>
+        </ul>
+
+        <p><strong>Example:</strong></p>
+        <pre><strong>numbers.txt:</strong>
+12 15 8 23 40 17 6 9
+
+<strong>After running program:</strong>
+
+even.txt:        odd.txt:
+12               15
+8                23
+40               17
+6                9</pre>
+
+        <p><strong>Important Notes:</strong></p>
+        <ul>
+            <li>Always check if file opened successfully (check for NULL)</li>
+            <li>Always close files after use to prevent data loss</li>
+            <li>Use appropriate file modes based on operation</li>
+        </ul>
+    </div>
+
+    <div class="practice-question">
+        <h3>Question 7: Program using structure to store and display employee records</h3>
+        <div class="code-container">
+            <pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+struct Employee {
+    int id;
+    char name[50];
+    float salary;
+    char department[30];
+};
+
+int main() {
+    struct Employee emp[5];
+    int i;
+    
+    // Input employee records
+    printf("Enter details of 5 employees:\n\n");
+    for(i = 0; i < 5; i++) {
+        printf("Employee %d:\n", i+1);
+        
+        printf("  ID: ");
+        scanf("%d", &emp[i].id);
+        
+        printf("  Name: ");
+        scanf(" %[^\n]", emp[i].name);  // Read string with spaces
+        
+        printf("  Salary: ");
+        scanf("%f", &emp[i].salary);
+        
+        printf("  Department: ");
+        scanf(" %[^\n]", emp[i].department);
+        
+        printf("\n");
+    }
+    
+    // Display all records
+    printf("\n========== EMPLOYEE RECORDS ==========\n\n");
+    for(i = 0; i < 5; i++) {
+        printf("Employee %d:\n", i+1);
+        printf("  ID: %d\n", emp[i].id);
+        printf("  Name: %s\n", emp[i].name);
+        printf("  Salary: %.2f\n", emp[i].salary);
+        printf("  Department: %s\n", emp[i].department);
+        printf("--------------------------------------\n");
+    }
+    
+    // Find highest paid employee
+    int maxIndex = 0;
+    for(i = 1; i < 5; i++) {
+        if(emp[i].salary > emp[maxIndex].salary) {
+            maxIndex = i;
+        }
+    }
+    
+    printf("\nHighest Paid Employee:\n");
+    printf("Name: %s\n", emp[maxIndex].name);
+    printf("Salary: %.2f\n", emp[maxIndex].salary);
+    
+    return 0;
+}</code></pre>
+        </div>
+
+        <h4>Answer:</h4>
+        <p><strong>What is a Structure?</strong></p>
+        <p>A structure is a user-defined data type that allows you to group different types of variables under a single
+            name. It's useful for representing real-world entities with multiple attributes.</p>
+
+        <p><strong>Structure Syntax:</strong></p>
+        <pre>struct StructureName {
+    datatype member1;
+    datatype member2;
+    ...
+};</pre>
+
+        <p><strong>How the program works:</strong></p>
+        <ol>
+            <li><strong>Define structure:</strong> Create Employee structure with 4 members (id, name, salary,
+                department)</li>
+            <li><strong>Declare array:</strong> <code>struct Employee emp[5]</code> - Array of 5 employee structures
+            </li>
+            <li><strong>Input data:</strong> Loop through array and read data for each employee using
+                <code>emp[i].member</code> notation</li>
+            <li><strong>Access members:</strong> Use dot operator (.) to access structure members:
+                <code>emp[i].salary</code></li>
+            <li><strong>Display records:</strong> Loop through array and print all employee details</li>
+            <li><strong>Find maximum:</strong> Compare salaries to find highest paid employee</li>
+        </ol>
+
+        <p><strong>Key Concepts:</strong></p>
+        <ul>
+            <li><strong>Structure declaration:</strong> Defines the template</li>
+            <li><strong>Structure variable:</strong> Creates actual storage</li>
+            <li><strong>Member access:</strong> Use dot (.) operator</li>
+            <li><strong>Array of structures:</strong> Multiple records of same type</li>
+        </ul>
+
+        <p><strong>Sample Output:</strong></p>
+        <pre>Enter details of 5 employees:
+
+Employee 1:
+  ID: 101
+  Name: John Doe
+  Salary: 50000
+  Department: IT
+
+========== EMPLOYEE RECORDS ==========
+
+Employee 1:
+  ID: 101
+  Name: John Doe
+  Salary: 50000.00
+  Department: IT
+--------------------------------------
+
+Highest Paid Employee:
+Name: John Doe
+Salary: 50000.00</pre>
+    </div>
+
+    <div class="practice-question">
+        <h3>Question 8: Explain the difference between structure and union with example</h3>
+
+        <h4>Answer:</h4>
+        <p><strong>Structure vs Union - Key Differences:</strong></p>
+
+        <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+            <thead>
+                <tr style="background-color: #fafafa;">
+                    <th style="border: 1px solid #e0e0e0; padding: 12px; text-align: left;">Feature</th>
+                    <th style="border: 1px solid #e0e0e0; padding: 12px; text-align: left;">Structure</th>
+                    <th style="border: 1px solid #e0e0e0; padding: 12px; text-align: left;">Union</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="border: 1px solid #e0e0e0; padding: 12px;"><strong>Keyword</strong></td>
+                    <td style="border: 1px solid #e0e0e0; padding: 12px;"><code>struct</code></td>
+                    <td style="border: 1px solid #e0e0e0; padding: 12px;"><code>union</code></td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid #e0e0e0; padding: 12px;"><strong>Memory</strong></td>
+                    <td style="border: 1px solid #e0e0e0; padding: 12px;">Each member gets separate memory</td>
+                    <td style="border: 1px solid #e0e0e0; padding: 12px;">All members share same memory</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid #e0e0e0; padding: 12px;"><strong>Size</strong></td>
+                    <td style="border: 1px solid #e0e0e0; padding: 12px;">Sum of all members' sizes</td>
+                    <td style="border: 1px solid #e0e0e0; padding: 12px;">Size of largest member</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid #e0e0e0; padding: 12px;"><strong>Access</strong></td>
+                    <td style="border: 1px solid #e0e0e0; padding: 12px;">All members accessible anytime</td>
+                    <td style="border: 1px solid #e0e0e0; padding: 12px;">Only one member at a time</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid #e0e0e0; padding: 12px;"><strong>Value Storage</strong></td>
+                    <td style="border: 1px solid #e0e0e0; padding: 12px;">All members can hold values simultaneously
+                    </td>
+                    <td style="border: 1px solid #e0e0e0; padding: 12px;">Only last assigned member holds value</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid #e0e0e0; padding: 12px;"><strong>Use Case</strong></td>
+                    <td style="border: 1px solid #e0e0e0; padding: 12px;">When you need all data together</td>
+                    <td style="border: 1px solid #e0e0e0; padding: 12px;">When you need only one value at a time</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p><strong>Example Program:</strong></p>
+        <div class="code-container">
+            <pre><code class="language-c">#include &lt;stdio.h&gt;
+
+// Structure example
+struct Student {
+    int roll;
+    char grade;
+    float marks;
+};
+
+// Union example
+union Data {
+    int i;
+    char c;
+    float f;
+};
+
+int main() {
+    struct Student s1;
+    union Data d1;
+    
+    // Structure - all members can hold values
+    s1.roll = 101;
+    s1.grade = 'A';
+    s1.marks = 95.5;
+    
+    printf("=== STRUCTURE ===\n");
+    printf("Roll: %d\n", s1.roll);      // 101
+    printf("Grade: %c\n", s1.grade);    // A
+    printf("Marks: %.2f\n", s1.marks);  // 95.50
+    printf("Size: %lu bytes\n\n", sizeof(s1));  // 12 bytes (4+1+4+padding)
+    
+    // Union - only one member holds value at a time
+    printf("=== UNION ===\n");
+    
+    d1.i = 10;
+    printf("After d1.i = 10:\n");
+    printf("  d1.i = %d\n", d1.i);     // 10 (correct)
+    
+    d1.c = 'A';
+    printf("\nAfter d1.c = 'A':\n");
+    printf("  d1.c = %c\n", d1.c);     // A (correct)
+    printf("  d1.i = %d\n", d1.i);     // Garbage (overwritten)
+    
+    d1.f = 3.14;
+    printf("\nAfter d1.f = 3.14:\n");
+    printf("  d1.f = %.2f\n", d1.f);   // 3.14 (correct)
+    printf("  d1.i = %d\n", d1.i);     // Garbage (overwritten)
+    printf("  d1.c = %c\n", d1.c);     // Garbage (overwritten)
+    
+    printf("\nSize: %lu bytes\n", sizeof(d1));  // 4 bytes (size of float)
+    
+    return 0;
+}</code></pre>
+        </div>
+
+        <p><strong>Memory Representation:</strong></p>
+        <pre><strong>STRUCTURE:</strong>
+┌─────────┬───────┬─────────┐
+│  roll   │ grade │  marks  │
+│ 4 bytes │1 byte │ 4 bytes │
+└─────────┴───────┴─────────┘
+Total: 12 bytes (with padding)
+
+<strong>UNION:</strong>
+┌─────────────┐
+│   Shared    │  ← All members use this same space
+│   4 bytes   │
+└─────────────┘
+Total: 4 bytes (largest member)</pre>
+
+        <p><strong>When to Use:</strong></p>
+        <ul>
+            <li><strong>Use Structure:</strong> When you need to store employee record (id, name, salary all needed
+                together)</li>
+            <li><strong>Use Union:</strong> When you need to store either integer OR float OR char (only one type at a
+                time), saves memory</li>
+        </ul>
+
+        <p><strong>Real-world Example:</strong></p>
+        <p>Union is useful in embedded systems or when dealing with different data interpretations of the same memory
+            location (like reading sensor data that could be int or float based on sensor type).</p>
+    </div>
+</section>

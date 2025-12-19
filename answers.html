@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ICP Comprehensive Answers</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #37352f;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background-color: #ffffff;
+        }
+
+        h1 {
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #1a73e8;
+        }
+
+        h2 {
+            font-family: 'Poppins', sans-serif;
+            margin-top: 40px;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 10px;
+            color: #202124;
+        }
+
+        .answer-container {
+            margin-bottom: 30px;
+            padding: 25px;
+            background-color: #fafafa;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+        }
+
+        .answer-container h3 {
+            margin-top: 0;
+            color: #1a73e8;
+            font-size: 1.2rem;
+        }
+
+        code {
+            background-color: #f1f3f4;
+            padding: 2px 5px;
+            border-radius: 4px;
+            font-family: 'Consolas', monospace;
+            color: #c7254e;
+        }
+
+        pre {
+            background-color: #1e1e1e;
+            color: #d4d4d4;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: 'Consolas', monospace;
+        }
+
+        .back-link {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #1a73e8;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .toc {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+        }
+
+        .toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .toc a {
+            text-decoration: none;
+            color: #1a73e8;
+        }
+
+        .toc a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="index.html" class="back-link">← Back to Guide</a>
+    <h1>Comprehensive Solutions Guide</h1>
+
+    <div class="toc">
+        <h3>Table of Contents</h3>
+        <ul>
+            <li><a href="#section-a">Section A: Basic Concepts</a></li>
+            <li><a href="#section-b">Section B: Core Programming</a></li>
+            <li><a href="#section-c">Section C: Advanced Problems</a></li>
+            <li><a href="#practice">Practice Questions</a></li>
+        </ul>
+    </div>
+
+    <h2 id="section-a">SECTION A: Basic Concepts</h2>
+
+    <div id="von-neumann" class="answer-container">
+        <h3>1. Von Neumann Architecture</h3>
+        <p><strong>Concept:</strong> The Von Neumann architecture describes a computer architecture based on the
+            stored-program computer concept, where instruction data and program data are stored in the same memory.</p>
+        <p><strong>Key Components:</strong></p>
+        <ul>
+            <li><strong>CPU (Central Processing Unit):</strong> Contains ALU (Arithmetic Logic Unit) and Control Unit.
+            </li>
+            <li><strong>Memory Unit:</strong> Stores both data and instructions.</li>
+            <li><strong>Input/Output Devices:</strong> Interface with the external world.</li>
+            <li><strong>Bus System:</strong> Data bus, Address bus, and Control bus for communication.</li>
+        </ul>
+    </div>
+
+    <div id="system-software" class="answer-container">
+        <h3>2. System vs Application Software</h3>
+        <table border="1" style="width:100%; border-collapse:collapse; margin-top:10px;">
+            <tr style="background:#f0f0f0;">
+                <th>Feature</th>
+                <th>System Software</th>
+                <th>Application Software</th>
+            </tr>
+            <tr>
+                <td><strong>Purpose</strong></td>
+                <td>Manage system resources</td>
+                <td>Perform specific user tasks</td>
+            </tr>
+            <tr>
+                <td><strong>Example</strong></td>
+                <td>OS (Windows, Linux), Drivers</td>
+                <td>Word, Chrome, Games</td>
+            </tr>
+            <tr>
+                <td><strong>Dependency</strong></td>
+                <td>Independent</td>
+                <td>Depends on System Software</td>
+            </tr>
+        </table>
+    </div>
+
+    <div id="control-structures" class="answer-container">
+        <h3>3. Control Structures (if-else vs switch)</h3>
+        <p><strong>if-else:</strong> Used for ranges of values or boolean conditions. Checks conditions sequentially.
+        </p>
+        <p><strong>switch-case:</strong> Used for discrete values (int, char). Jumps directly to the matching case
+            (faster for many conditions).</p>
+        <pre><code class="language-c">// Switch Example
+switch(choice) {
+    case 1: printf("One"); break;
+    case 2: printf("Two"); break;
+    default: printf("Invalid");
+}</code></pre>
+    </div>
+
+    <div id="c-basics" class="answer-container">
+        <h3>4. C Basics & Data Types</h3>
+        <p><strong>Basic Data Types:</strong></p>
+        <ul>
+            <li><code>int</code> (2 or 4 bytes) - Integers</li>
+            <li><code>float</code> (4 bytes) - Decimal numbers</li>
+            <li><code>char</code> (1 byte) - Characters</li>
+            <li><code>double</code> (8 bytes) - High precision decimals</li>
+        </ul>
+        <p><strong>Operators:</strong> <code>=</code> is assignment, <code>==</code> is comparison. <code>&</code> is
+            bitwise AND, <code>&&</code> is logical AND.</p>
+    </div>
+    <h2 id="section-b">SECTION B: Core Programming</h2>
+
+    <div id="recursion" class="answer-container">
+        <h3>1. Recursion Examples</h3>
+        <p><strong>Factorial:</strong></p>
+        <pre><code class="language-c">int fact(int n) {
+    if(n==0) return 1;
+    return n * fact(n-1);
+}</code></pre>
+        <p><strong>Fibonacci:</strong></p>
+        <pre><code class="language-c">int fib(int n) {
+    if(n<=1) return n;
+    return fib(n-1) + fib(n-2);
+}</code></pre>
+        <p><strong>GCD:</strong></p>
+        <pre><code class="language-c">int gcd(int a, int b) {
+    if(b==0) return a;
+    return gcd(b, a%b);
+}</code></pre>
+    </div>
+
+    <div id="arrays" class="answer-container">
+        <h3>2. Arrays & Matrices</h3>
+        <p><strong>Matrix Multiplication (3x3):</strong></p>
+        <pre><code class="language-c">for(i=0; i<3; i++) {
+    for(j=0; j<3; j++) {
+        res[i][j] = 0;
+        for(k=0; k<3; k++)
+            res[i][j] += a[i][k] * b[k][j];
+    }
+}</code></pre>
+        <p><strong>Transpose:</strong> <code>trans[j][i] = mat[i][j];</code></p>
+        <p><strong>Linear Search:</strong> Loop through array, if <code>arr[i] == key</code>, return index.</p>
+    </div>
+
+    <div id="strings" class="answer-container">
+        <h3>3. String Operations (Manual)</h3>
+        <p><strong>Palindrome Check:</strong></p>
+        <pre><code class="language-c">int isPalindrome(char str[]) {
+    int l = 0, h = strlen(str) - 1;
+    while(h > l) {
+        if(str[l++] != str[h--]) return 0;
+    }
+    return 1;
+}</code></pre>
+        <p><strong>String Length:</strong> <code>while(str[i] != '\0') i++;</code></p>
+    </div>
+
+    <div id="structures" class="answer-container">
+        <h3>4. Structures</h3>
+        <p><strong>Employee Structure:</strong></p>
+        <pre><code class="language-c">struct Employee {
+    int id;
+    char name[50];
+    float salary;
+};
+// In main:
+struct Employee emp[10];
+// Loop to input and check salary > 50000</code></pre>
+    </div>
+
+    <div id="file-handling" class="answer-container">
+        <h3>5. File Handling</h3>
+        <p><strong>Even/Odd Separation:</strong></p>
+        <pre><code class="language-c">FILE *f1 = fopen("input.txt", "r");
+FILE *fe = fopen("even.txt", "w");
+FILE *fo = fopen("odd.txt", "w");
+while(fscanf(f1, "%d", &num) != EOF) {
+    if(num%2==0) fprintf(fe, "%d\n", num);
+    else fprintf(fo, "%d\n", num);
+}</code></pre>
+    </div>
+
+    <h2 id="section-c">SECTION C: Advanced Problems</h2>
+
+    <div id="sec-c-type1" class="answer-container">
+        <h3>Type 1: Employee File Processing</h3>
+        <p><strong>Problem:</strong> Read employees, filter by department & salary, sort, write to file.</p>
+        <p><strong>Logic:</strong></p>
+        <ol>
+            <li>Define <code>struct Employee</code>.</li>
+            <li>Use <code>fread</code> or <code>fscanf</code> to load data into an array of structures.</li>
+            <li>Loop to filter: <code>if(strcmp(e[i].dept, "Sales")==0 && e[i].salary > 50000)</code>.</li>
+            <li>Sort using Bubble Sort on the filtered array based on date.</li>
+            <li>Write result using <code>fprintf</code>.</li>
+        </ol>
+    </div>
+
+    <div id="sec-c-type2" class="answer-container">
+        <h3>Type 2: Student Marks Processing</h3>
+        <p><strong>Problem:</strong> Read 3 files (Physics, Chem, Maths), calculate %, grade, write result.</p>
+        <p><strong>Logic:</strong></p>
+        <ol>
+            <li>Open all 3 input files and 1 output file.</li>
+            <li>Loop while all files have data.</li>
+            <li><code>sum = p + c + m; percent = sum/3.0;</code></li>
+            <li>Determine grade using if-else ladder.</li>
+            <li>Write to output file.</li>
+        </ol>
+    </div>
+
+    <div id="sec-c-type4" class="answer-container">
+        <h3>Type 4: Library Management</h3>
+        <p><strong>Problem:</strong> Issue books, calculate fine.</p>
+        <p><strong>Logic:</strong></p>
+        <ol>
+            <li><code>struct Book { int id; char title[50]; int issued_flag; char date[20]; }</code></li>
+            <li><strong>Issue Function:</strong> Check <code>if(b.issued_flag == 0)</code> then set to 1.</li>
+            <li><strong>Fine Function:</strong> Calculate days difference. <code>if(days > 15) fine = (days-15) * 5;</code></li>
+        </ol>
+    </div>
+
+    
+    <div id="number-system" class="answer-container">
+        <h3>Section A: 1. Number System Conversions</h3>
+        <p><strong>Binary to Decimal:</strong> Multiply each bit by 2^n. Ex: 101 = 1*4 + 0*2 + 1*1 = 5.</p>
+        <p><strong>Decimal to Binary:</strong> Divide by 2 and record remainders. Ex: 5/2=2(1), 2/2=1(0), 1/2=0(1) -> 101.</p>
+        <p><strong>Hexadecimal:</strong> Base 16 (0-9, A-F). 1 Hex digit = 4 Binary bits.</p>
+    </div>
+
+    <div id="differences" class="answer-container">
+        <h3>Section A: 2. Differentiate Between</h3>
+        <p><strong>Compiler vs Interpreter:</strong> Compiler translates whole code (faster execution), Interpreter translates line-by-line (easier debugging).</p>
+        <p><strong>Structure vs Union:</strong> Structure has separate memory for members, Union shares memory.</p>
+        <p><strong>while vs do-while:</strong> while checks condition first (entry controlled), do-while executes at least once (exit controlled).</p>
+    </div>
+
+    <div id="basic-programs" class="answer-container">
+        <h3>Section A: 3. Basic C Programs</h3>
+        <p><strong>Prime Number:</strong> Loop from 2 to n/2, if n%i==0 then not prime.</p>
+        <p><strong>Armstrong:</strong> Sum of cubes of digits == number.</p>
+        <p><strong>Fibonacci:</strong> 0, 1, 1, 2, 3... (next = prev + curr).</p>
+    </div>
+
+    <div id="diagrams" class="answer-container">
+        <h3>Section A: 4. Explain with Diagram</h3>
+        <p><strong>Block Diagram of Computer:</strong> Input Unit -> CPU (ALU + CU + Memory) -> Output Unit.</p>
+        <p><strong>Compilation Process:</strong> Source Code -> Preprocessor -> Compiler -> Assembler -> Linker -> Executable.</p>
+    </div>
+
+    <div id="pointers" class="answer-container">
+        <h3>Section B: Category 6: Pointers</h3>
+        <p><strong>Swap using Pointers:</strong></p>
+        <pre><code class="language-c">void swap(int *a, int *b) {
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}</code></pre>
+        <p><strong>Array Access:</strong> <code>*(arr + i)</code> is same as <code>arr[i]</code>.</p>
+    </div>
+
+    <div id="cla" class="answer-container">
+        <h3>Section B: Category 7: Command Line Arguments</h3>
+        <p><strong>Syntax:</strong> <code>int main(int argc, char *argv[])</code></p>
+        <p><strong>Sum of numbers:</strong></p>
+        <pre><code class="language-c">int sum = 0;
+for(int i=1; i<argc; i++) sum += atoi(argv[i]);</code></pre>
+    </div>
+
+    <div id="pred-q1" class="answer-container">
+        <h3>Predicted Q1: Storage Classes & Factorial</h3>
+        <p><strong>Storage Classes:</strong></p>
+        <ul>
+            <li><strong>auto:</strong> Local scope, garbage value.</li>
+            <li><strong>register:</strong> CPU register, fast access.</li>
+            <li><strong>static:</strong> Retains value between calls.</li>
+            <li><strong>extern:</strong> Global scope, visible across files.</li>
+        </ul>
+        <p><strong>Factorial:</strong> See Recursion section.</p>
+    </div>
+
+    <div id="pred-q2" class="answer-container">
+        <h3>Predicted Q2: Palindrome & Macro vs Function</h3>
+        <p><strong>Macro vs Function:</strong> Macro is preprocessed (text replacement, faster, no type checking). Function is compiled (stack overhead, type checking).</p>
+        <p><strong>Palindrome:</strong> See Strings section.</p>
+    </div>
+
+    <div id="pred-q3" class="answer-container">
+        <h3>Predicted Q3: Matrix & CLA</h3>
+        <p><strong>Matrix Mult:</strong> See Arrays section.</p>
+        <p><strong>CLA Sum:</strong> See Command Line Arguments section.</p>
+    </div>
+
+    <div id="sec-c-type3" class="answer-container">
+        <h3>Section C: Type 3: Complex String/Structure</h3>
+        <p><strong>Problem:</strong> Book structure with functions.</p>
+        <p><strong>Logic:</strong></p>
+        <ol>
+            <li>Pass array of structures to function: <code>void display(struct Book b[], int n)</code>.</li>
+            <li>Loop through array to find max price or pages > 300.</li>
+            <li>Return result or print inside function.</li>
+        </ol>
+    </div>
+<h2 id="practice">Practice Questions (Detailed)</h2>
+    <!-- Content from previous practice section -->
+    <div id="q1" class="answer-container">
+        <h3>Q1: Swap Two Numbers</h3>
+        <pre><code class="language-c">a = a + b;
+b = a - b;
+a = a - b;</code></pre>
+    </div>
+
+    <div id="q2" class="answer-container">
+        <h3>Q2: Armstrong Number</h3>
+        <p>Sum of digits raised to power of number of digits.</p>
+        <pre><code class="language-c">while(temp!=0) { rem=temp%10; sum+=pow(rem,n); temp/=10; }</code></pre>
+    </div>
+    
+    <div id="q3" class="answer-container">
+        <h3>Q3: Factorial (Recursive)</h3>
+        <p>See Section B recursion example.</p>
+    </div>
+
+    <div id="q4" class="answer-container">
+        <h3>Q4: Matrix Multiplication</h3>
+        <p>See Section B arrays example.</p>
+    </div>
+
+    <div id="q5" class="answer-container">
+        <h3>Q5: Palindrome</h3>
+        <p>See Section B strings example.</p>
+    </div>
+
+    <div id="q6" class="answer-container">
+        <h3>Q6: File Handling</h3>
+        <p>See Section B file handling example.</p>
+    </div>
+
+    <div id="q7" class="answer-container">
+        <h3>Q7: Employee Structure</h3>
+        <p>See Section B structure example.</p>
+    </div>
+
+    <div id="q8" class="answer-container">
+        <h3>Q8: Structure vs Union</h3>
+        <p><strong>Structure:</strong> Separate memory for each member. Size = Sum of members.</p>
+        <p><strong>Union:</strong> Shared memory. Size = Largest member.</p>
+    </div>
+
+</body>
+</html>
